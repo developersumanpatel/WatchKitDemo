@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="AgC-eL-Hgc">
+    <device id="watch38" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="watchOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="12029"/>
+    </dependencies>
+    <scenes>
+        <!--Interface Controller-->
+        <scene sceneID="aou-V4-d1y">
+            <objects>
+                <controller id="AgC-eL-Hgc" customClass="InterfaceController" customModule="WatchDemo" customModuleProvider="target">
+                    <items>
+                        <label alignment="center" verticalAlignment="center" text="Welcome" id="eDF-up-sWD"/>
+                        <button width="1" alignment="center" verticalAlignment="bottom" title="Navigate" id="oXW-Y0-2mE">
+                            <fontDescription key="font" type="system" pointSize="10"/>
+                            <connections>
+                                <segue destination="ckc-LY-Jqn" kind="push" id="3fH-TV-Bki"/>
+                            </connections>
+                        </button>
+                        <button width="1" alignment="center" title="Page" id="WA3-iH-urp">
+                            <fontDescription key="font" type="system" pointSize="10"/>
+                            <connections>
+                                <segue destination="hGS-AP-p19" kind="modal" id="NCY-rB-5la"/>
+                            </connections>
+                        </button>
+                    </items>
+                    <connections>
+                        <outlet property="lblHeader" destination="eDF-up-sWD" id="jb0-S3-5fo"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="220" y="345"/>
+        </scene>
+        <!--First Screen-->
+        <scene sceneID="SFR-Ro-EH8">
+            <objects>
+                <controller id="ckc-LY-Jqn" customClass="FirstScreen" customModule="WatchDemo_Extension">
+                    <items>
+                        <table alignment="center" id="tbT-Zc-ppc">
+                            <items>
+                                <tableRow identifier="CellFirstScreen" id="0kw-sM-4fY" customClass="CellFirstScreen" customModule="WatchDemo_Extension">
+                                    <group key="rootItem" width="1" alignment="left" id="Pjh-dy-QM3">
+                                        <items>
+                                            <group width="40" alignment="left" layout="vertical" id="siO-HO-h31">
+                                                <items>
+                                                    <imageView width="40" height="40" alignment="left" id="DNv-3Q-ges"/>
+                                                </items>
+                                            </group>
+                                            <label alignment="left" verticalAlignment="center" text="Label" textAlignment="left" baselineAdjustment="alignCenters" numberOfLines="0" id="Gu6-AI-kiu">
+                                                <fontDescription key="font" style="UICTFontTextStyleBody"/>
+                                            </label>
+                                        </items>
+                                    </group>
+                                    <connections>
+                                        <outlet property="groupImgBg" destination="siO-HO-h31" id="eck-5h-Fwk"/>
+                                        <outlet property="rowDescription" destination="Gu6-AI-kiu" id="tLb-26-0hR"/>
+                                        <outlet property="rowImage" destination="DNv-3Q-ges" id="hsy-Jx-x2S"/>
+                                    </connections>
+                                </tableRow>
+                            </items>
+                        </table>
+                    </items>
+                    <connections>
+                        <outlet property="tblFirstScreen" destination="tbT-Zc-ppc" id="qRH-mG-at4"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="440" y="359"/>
+        </scene>
+        <!--Page Screen-->
+        <scene sceneID="Se3-Jo-LAP">
+            <objects>
+                <controller id="hGS-AP-p19" customClass="PageScreen" customModule="WatchDemo_Extension">
+                    <items>
+                        <label alignment="right" text="Color" id="ai5-6i-iiX"/>
+                        <group alignment="center" verticalAlignment="center" id="wtD-QW-tO9">
+                            <items>
+                                <imageView width="1" height="1" alignment="center" verticalAlignment="center" image="Logo" contentMode="scaleAspectFit" id="TYF-Ci-mmn">
+                                    <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                </imageView>
+                            </items>
+                            <gestureRecognizers>
+                                <tapGestureRecognizer id="7wR-WN-Qbc">
+                                    <connections>
+                                        <action selector="tap:" destination="hGS-AP-p19" id="cWt-VB-APR"/>
+                                    </connections>
+                                </tapGestureRecognizer>
+                            </gestureRecognizers>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </group>
+                    </items>
+                    <edgeInsets key="margins" left="1" right="1" top="0.0" bottom="0.0"/>
+                    <connections>
+                        <outlet property="groupImg" destination="wtD-QW-tO9" id="K5i-E3-5qu"/>
+                        <outlet property="imgView" destination="TYF-Ci-mmn" id="C1E-sm-THP"/>
+                        <outlet property="lblColor" destination="ai5-6i-iiX" id="h4P-t7-j37"/>
+                        <outlet property="tapGesture" destination="7wR-WN-Qbc" id="Gvp-8P-XYn"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="653" y="359.5"/>
+        </scene>
+        <!--Static Notification Interface Controller-->
+        <scene sceneID="AEw-b0-oYE">
+            <objects>
+                <notificationController id="YCC-NB-fut">
+                    <items>
+                        <label alignment="left" text="Alert Label" id="IdU-wH-bcW"/>
+                    </items>
+                    <notificationCategory key="notificationCategory" identifier="myCategory" id="JfB-70-Muf"/>
+                    <connections>
+                        <outlet property="notificationAlertLabel" destination="IdU-wH-bcW" id="JKC-fr-R95"/>
+                        <segue destination="4sK-HA-Art" kind="relationship" relationship="dynamicNotificationInterface" id="kXh-Jw-8B1"/>
+                    </connections>
+                </notificationController>
+            </objects>
+            <point key="canvasLocation" x="220" y="643"/>
+        </scene>
+        <!--Notification Controller-->
+        <scene sceneID="ZPc-GJ-vnh">
+            <objects>
+                <controller id="4sK-HA-Art" customClass="NotificationController" customModule="WatchDemo" customModuleProvider="target"/>
+            </objects>
+            <point key="canvasLocation" x="468" y="643"/>
+        </scene>
+    </scenes>
+</document>
